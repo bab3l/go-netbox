@@ -1,8 +1,6 @@
 run:
   timeout: 5m
   tests: true
-  skip-dirs:
-    - patches
 
 linters:
   enable:
