@@ -9,17 +9,23 @@ linters:
     - govet
     - staticcheck
     - errcheck
-    - gosimple
     - ineffassign
-    - typecheck
     - unused
     - misspell
     - goconst
     - gosec
+    # HTTP/API client specific
+    - bodyclose
+    - noctx
+    # Error handling
+    - errorlint
+    - nilerr
+    # Code quality
+    - unconvert
+    - prealloc
+    - revive
+    - unparam
 
 issues:
-  exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
-  exclude-dirs:
-    - patches
