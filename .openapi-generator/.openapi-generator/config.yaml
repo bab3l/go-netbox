@@ -10,7 +10,7 @@ packageName: netbox
 globalProperty:
   apiDocs: false
   modelDocs: false
-  apiTests: false
+  apiTests: true
   modelTests: false
 
 additionalProperties:
