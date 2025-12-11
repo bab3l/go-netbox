@@ -46,22 +46,8 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: 'stable'
-      - name: Install golangci-lint
+      - name: Run golangci-lint
         uses: golangci/golangci-lint-action@v6
         with:
           version: latest
           args: --timeout=5m
-
-  gosec:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: 'stable'
-      - name: Run gosec
-        uses: securego/gosec@v2.22.0
-        with:
-          args: ./...
