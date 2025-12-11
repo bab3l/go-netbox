@@ -10,6 +10,7 @@
     4. Runs OpenAPI Generator to generate the Go client
     5. Applies any manual patches
     6. Runs go mod tidy and goimports
+    7. Optionally runs tests
 
 .PARAMETER SkipDocker
     Skip the Docker-based code generation (useful for testing other steps)
@@ -17,16 +18,35 @@
 .PARAMETER SkipPatches
     Skip applying manual patches from the patches directory
 
+.PARAMETER GenerateTests
+    Generate API test scaffolds (default: true)
+
+.PARAMETER RunTests
+    Run tests after generation (default: false)
+
+.PARAMETER RunIntegrationTests
+    Run integration tests against a real NetBox instance (default: false)
+    Requires NETBOX_URL and NETBOX_API_TOKEN environment variables
+
 .EXAMPLE
     .\generate_api.ps1
     
 .EXAMPLE
     .\generate_api.ps1 -SkipDocker
+
+.EXAMPLE
+    .\generate_api.ps1 -RunTests
+
+.EXAMPLE
+    .\generate_api.ps1 -RunIntegrationTests
 #>
 
 param(
     [switch]$SkipDocker,
-    [switch]$SkipPatches
+    [switch]$SkipPatches,
+    [bool]$GenerateTests = $true,
+    [switch]$RunTests,
+    [switch]$RunIntegrationTests
 )
 
 $ErrorActionPreference = "Stop"
@@ -55,18 +75,30 @@ foreach ($folder in $folders) {
     }
 }
 
-# Purge old generated files
-Write-Host "`nPurging old generated files..." -ForegroundColor Yellow
-$filesListPath = "$ProjectRoot\.openapi-generator\FILES"
-if (Test-Path $filesListPath) {
-    $files = Get-Content $filesListPath
-    foreach ($file in $files) {
-        $filePath = Join-Path $ProjectRoot $file
-        if (Test-Path $filePath) {
-            Remove-Item $filePath -Force -ErrorAction SilentlyContinue
+# Update config.yaml with GenerateTests setting
+$configPath = "$ScriptDir\.openapi-generator\config.yaml"
+if (Test-Path $configPath) {
+    $configContent = Get-Content $configPath -Raw
+    $apiTestsValue = if ($GenerateTests) { "true" } else { "false" }
+    $configContent = $configContent -replace '(apiTests:\s*)(true|false)', "`$1$apiTestsValue"
+    Set-Content -Path $configPath -Value $configContent -NoNewline
+    Write-Host "Set apiTests: $apiTestsValue in config.yaml" -ForegroundColor Cyan
+}
+
+# Purge old generated files (only if we're regenerating)
+if (-not $SkipDocker) {
+    Write-Host "`nPurging old generated files..." -ForegroundColor Yellow
+    $filesListPath = "$ProjectRoot\.openapi-generator\FILES"
+    if (Test-Path $filesListPath) {
+        $files = Get-Content $filesListPath
+        foreach ($file in $files) {
+            $filePath = Join-Path $ProjectRoot $file
+            if (Test-Path $filePath) {
+                Remove-Item $filePath -Force -ErrorAction SilentlyContinue
+            }
         }
+        Write-Host "Removed $(($files | Measure-Object).Count) old generated files" -ForegroundColor Green
     }
-    Write-Host "Removed $(($files | Measure-Object).Count) old generated files" -ForegroundColor Green
 }
 
 # Find the OpenAPI spec file
@@ -144,12 +176,19 @@ else {
 }
 
 # Apply manual patches
+# Note: Patch files have "//go:build ignore" on line 1 to exclude them from compilation.
+# This line must be stripped when copying to the project root.
 if (-not $SkipPatches) {
     Write-Host "`nApplying manual patches..." -ForegroundColor Yellow
     $patchFiles = Get-ChildItem "$ProjectRoot\patches" -Filter "*.go" -ErrorAction SilentlyContinue
     if ($patchFiles) {
         foreach ($patch in $patchFiles) {
-            Copy-Item $patch.FullName "$ProjectRoot\$($patch.Name)" -Force
+            $destPath = "$ProjectRoot\$($patch.Name)"
+            # Read content, skip the //go:build ignore line, and write to destination
+            $content = Get-Content $patch.FullName -Raw
+            # Remove the //go:build ignore line (with optional trailing newline)
+            $content = $content -replace '^//go:build ignore\r?\n', ''
+            Set-Content -Path $destPath -Value $content -NoNewline
             Write-Host "Applied patch: $($patch.Name)" -ForegroundColor Green
         }
     }
@@ -224,6 +263,50 @@ try {
 }
 finally {
     Pop-Location
+}
+
+# Run tests if requested
+if ($RunTests) {
+    Write-Host "`nRunning unit tests..." -ForegroundColor Yellow
+    Push-Location $ProjectRoot
+    try {
+        go test ./... -v
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "Tests failed with exit code $LASTEXITCODE"
+            exit 1
+        }
+        Write-Host "Unit tests passed!" -ForegroundColor Green
+    }
+    finally {
+        Pop-Location
+    }
+}
+
+# Run integration tests if requested
+if ($RunIntegrationTests) {
+    Write-Host "`nRunning integration tests..." -ForegroundColor Yellow
+    
+    # Check for required environment variables
+    if (-not $env:NETBOX_URL) {
+        $env:NETBOX_URL = "http://localhost:8000"
+        Write-Host "NETBOX_URL not set, using default: $env:NETBOX_URL" -ForegroundColor Yellow
+    }
+    if (-not $env:NETBOX_API_TOKEN) {
+        Write-Warning "NETBOX_API_TOKEN not set. Integration tests may fail without authentication."
+    }
+    
+    Push-Location $ProjectRoot
+    try {
+        go test -v ./test -tags=integration
+        if ($LASTEXITCODE -ne 0) {
+            Write-Error "Integration tests failed with exit code $LASTEXITCODE"
+            exit 1
+        }
+        Write-Host "Integration tests passed!" -ForegroundColor Green
+    }
+    finally {
+        Pop-Location
+    }
 }
 
 Write-Host "`n========================================" -ForegroundColor Cyan
