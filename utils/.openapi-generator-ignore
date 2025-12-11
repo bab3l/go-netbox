@@ -1,0 +1,8 @@
+# Defined as part of the creation process
+/.gitignore
+/api/openapi.yaml
+/README.md
+
+#  Unnecessary files
+/.travis.yml
+/git_push.sh
