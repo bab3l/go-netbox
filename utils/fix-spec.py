@@ -173,6 +173,8 @@ if 'components' in data and 'schemas' in data['components']:
                     # TunnelGroup - tunnel_count is computed and not returned on create/update
                     "TunnelGroup": ["tunnel_count"],
                     "BriefTunnelGroup": ["tunnel_count"],
+                    # VirtualDeviceContext - interface_count is computed and not always returned
+                    "VirtualDeviceContext": ["interface_count"],
                 }
 
                 if component_name in non_required.keys():

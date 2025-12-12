@@ -151659,7 +151659,6 @@ components:
       - display
       - display_url
       - id
-      - interface_count
       - last_updated
       - name
       - primary_ip
