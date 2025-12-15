@@ -58,6 +58,7 @@ type Device struct {
 	Description    *string                     `json:"description,omitempty"`
 	Comments       *string                     `json:"comments,omitempty"`
 	ConfigTemplate NullableBriefConfigTemplate `json:"config_template,omitempty"`
+	ConfigContext  interface{}                 `json:"config_context,omitempty"`
 	// Local config context data takes precedence over source contexts in the final rendered config context
 	LocalContextData       interface{}            `json:"local_context_data,omitempty"`
 	Tags                   []NestedTag            `json:"tags,omitempty"`
@@ -1260,6 +1261,39 @@ func (o *Device) UnsetConfigTemplate() {
 	o.ConfigTemplate.Unset()
 }
 
+// GetConfigContext returns the ConfigContext field value if set, zero value otherwise (both if not set or set to explicit null).
+func (o *Device) GetConfigContext() interface{} {
+	if o == nil {
+		var ret interface{}
+		return ret
+	}
+	return o.ConfigContext
+}
+
+// GetConfigContextOk returns a tuple with the ConfigContext field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+// NOTE: If the value is an explicit nil, `nil, true` will be returned
+func (o *Device) GetConfigContextOk() (*interface{}, bool) {
+	if o == nil || IsNil(o.ConfigContext) {
+		return nil, false
+	}
+	return &o.ConfigContext, true
+}
+
+// HasConfigContext returns a boolean if a field has been set.
+func (o *Device) HasConfigContext() bool {
+	if o != nil && !IsNil(o.ConfigContext) {
+		return true
+	}
+
+	return false
+}
+
+// SetConfigContext gets a reference to the given interface{} and assigns it to the ConfigContext field.
+func (o *Device) SetConfigContext(v interface{}) {
+	o.ConfigContext = v
+}
+
 // GetLocalContextData returns the LocalContextData field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Device) GetLocalContextData() interface{} {
 	if o == nil {
@@ -1737,6 +1771,9 @@ func (o Device) ToMap() (map[string]interface{}, error) {
 	if o.ConfigTemplate.IsSet() {
 		toSerialize["config_template"] = o.ConfigTemplate.Get()
 	}
+	if o.ConfigContext != nil {
+		toSerialize["config_context"] = o.ConfigContext
+	}
 	if o.LocalContextData != nil {
 		toSerialize["local_context_data"] = o.LocalContextData
 	}
@@ -1869,6 +1906,7 @@ func (o *Device) UnmarshalJSON(data []byte) (err error) {
 		delete(additionalProperties, "description")
 		delete(additionalProperties, "comments")
 		delete(additionalProperties, "config_template")
+		delete(additionalProperties, "config_context")
 		delete(additionalProperties, "local_context_data")
 		delete(additionalProperties, "tags")
 		delete(additionalProperties, "custom_fields")

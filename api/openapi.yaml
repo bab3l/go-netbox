@@ -22260,7 +22260,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeviceWithConfigContext'
+                $ref: '#/components/schemas/Device'
           description: ''
     put:
       operationId: dcim_devices_bulk_update
@@ -22290,7 +22290,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/DeviceWithConfigContext'
+                  $ref: '#/components/schemas/Device'
           description: ''
     patch:
       operationId: dcim_devices_bulk_partial_update
@@ -22320,7 +22320,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/DeviceWithConfigContext'
+                  $ref: '#/components/schemas/Device'
           description: ''
     delete:
       operationId: dcim_devices_bulk_destroy
@@ -22367,7 +22367,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeviceWithConfigContext'
+                $ref: '#/components/schemas/Device'
           description: ''
     put:
       operationId: dcim_devices_update
@@ -22398,7 +22398,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeviceWithConfigContext'
+                $ref: '#/components/schemas/Device'
           description: ''
     patch:
       operationId: dcim_devices_partial_update
@@ -22428,7 +22428,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeviceWithConfigContext'
+                $ref: '#/components/schemas/Device'
           description: ''
     delete:
       operationId: dcim_devices_destroy
@@ -22485,10 +22485,10 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DeviceWithConfigContext'
+                $ref: '#/components/schemas/Device'
             text/plain:
               schema:
-                $ref: '#/components/schemas/DeviceWithConfigContext'
+                $ref: '#/components/schemas/Device'
           description: ''
   /api/dcim/front-port-templates/:
     get:
@@ -118208,6 +118208,9 @@ components:
           allOf:
           - $ref: '#/components/schemas/BriefConfigTemplate'
           nullable: true
+        config_context:
+          nullable: true
+          readOnly: true
         local_context_data:
           nullable: true
           description: Local config context data takes precedence over source contexts
@@ -118915,305 +118918,6 @@ components:
       - manufacturer
       - model
       - slug
-    DeviceWithConfigContext:
-      type: object
-      description: Adds support for custom fields and tags.
-      properties:
-        id:
-          type: integer
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        display_url:
-          type: string
-          format: uri
-          readOnly: true
-        display:
-          type: string
-          readOnly: true
-        name:
-          type: string
-          nullable: true
-          maxLength: 64
-        device_type:
-          $ref: '#/components/schemas/BriefDeviceType'
-        role:
-          $ref: '#/components/schemas/BriefDeviceRole'
-        tenant:
-          allOf:
-          - $ref: '#/components/schemas/BriefTenant'
-          nullable: true
-        platform:
-          allOf:
-          - $ref: '#/components/schemas/BriefPlatform'
-          nullable: true
-        serial:
-          type: string
-          title: Serial number
-          description: Chassis serial number, assigned by the manufacturer
-          maxLength: 50
-        asset_tag:
-          type: string
-          nullable: true
-          description: A unique tag used to identify this device
-          maxLength: 50
-        site:
-          $ref: '#/components/schemas/BriefSite'
-        location:
-          allOf:
-          - $ref: '#/components/schemas/BriefLocation'
-          nullable: true
-        rack:
-          allOf:
-          - $ref: '#/components/schemas/BriefRack'
-          nullable: true
-        position:
-          type: number
-          format: double
-          maximum: 1000
-          minimum: 0.5
-          exclusiveMaximum: true
-          nullable: true
-          title: Position (U)
-        face:
-          type: object
-          properties:
-            value:
-              enum:
-              - front
-              - rear
-              - ''
-              type: string
-              description: '* `front` - Front
-
-                * `rear` - Rear'
-              x-spec-enum-id: d2fb9b3f75158b83
-            label:
-              type: string
-              enum:
-              - Front
-              - Rear
-        latitude:
-          type: number
-          format: double
-          maximum: 100
-          minimum: -100
-          exclusiveMaximum: true
-          exclusiveMinimum: true
-          nullable: true
-          description: GPS coordinate in decimal format (xx.yyyyyy)
-        longitude:
-          type: number
-          format: double
-          maximum: 1000
-          minimum: -1000
-          exclusiveMaximum: true
-          exclusiveMinimum: true
-          nullable: true
-          description: GPS coordinate in decimal format (xx.yyyyyy)
-        parent_device:
-          allOf:
-          - $ref: '#/components/schemas/NestedDevice'
-          nullable: true
-          readOnly: true
-        status:
-          type: object
-          properties:
-            value:
-              enum:
-              - offline
-              - active
-              - planned
-              - staged
-              - failed
-              - inventory
-              - decommissioning
-              type: string
-              description: '* `offline` - Offline
-
-                * `active` - Active
-
-                * `planned` - Planned
-
-                * `staged` - Staged
-
-                * `failed` - Failed
-
-                * `inventory` - Inventory
-
-                * `decommissioning` - Decommissioning'
-              x-spec-enum-id: 8d8971779f16ee18
-            label:
-              type: string
-              enum:
-              - Offline
-              - Active
-              - Planned
-              - Staged
-              - Failed
-              - Inventory
-              - Decommissioning
-        airflow:
-          type: object
-          properties:
-            value:
-              enum:
-              - front-to-rear
-              - rear-to-front
-              - left-to-right
-              - right-to-left
-              - side-to-rear
-              - rear-to-side
-              - bottom-to-top
-              - top-to-bottom
-              - passive
-              - mixed
-              - ''
-              type: string
-              description: '* `front-to-rear` - Front to rear
-
-                * `rear-to-front` - Rear to front
-
-                * `left-to-right` - Left to right
-
-                * `right-to-left` - Right to left
-
-                * `side-to-rear` - Side to rear
-
-                * `rear-to-side` - Rear to side
-
-                * `bottom-to-top` - Bottom to top
-
-                * `top-to-bottom` - Top to bottom
-
-                * `passive` - Passive
-
-                * `mixed` - Mixed'
-              x-spec-enum-id: 943288113dad6782
-            label:
-              type: string
-              enum:
-              - Front to rear
-              - Rear to front
-              - Left to right
-              - Right to left
-              - Side to rear
-              - Rear to side
-              - Bottom to top
-              - Top to bottom
-              - Passive
-              - Mixed
-        primary_ip:
-          allOf:
-          - $ref: '#/components/schemas/BriefIPAddress'
-          readOnly: true
-          nullable: true
-        primary_ip4:
-          allOf:
-          - $ref: '#/components/schemas/BriefIPAddress'
-          nullable: true
-        primary_ip6:
-          allOf:
-          - $ref: '#/components/schemas/BriefIPAddress'
-          nullable: true
-        oob_ip:
-          allOf:
-          - $ref: '#/components/schemas/BriefIPAddress'
-          nullable: true
-        cluster:
-          allOf:
-          - $ref: '#/components/schemas/BriefCluster'
-          nullable: true
-        virtual_chassis:
-          allOf:
-          - $ref: '#/components/schemas/BriefVirtualChassis'
-          nullable: true
-        vc_position:
-          type: integer
-          maximum: 255
-          minimum: 0
-          nullable: true
-        vc_priority:
-          type: integer
-          maximum: 255
-          minimum: 0
-          nullable: true
-          description: Virtual chassis master election priority
-        description:
-          type: string
-          maxLength: 200
-        comments:
-          type: string
-        config_template:
-          allOf:
-          - $ref: '#/components/schemas/BriefConfigTemplate'
-          nullable: true
-        config_context:
-          nullable: true
-          readOnly: true
-        local_context_data:
-          nullable: true
-          description: Local config context data takes precedence over source contexts
-            in the final rendered config context
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/NestedTag'
-        custom_fields:
-          type: object
-          additionalProperties: {}
-        created:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        last_updated:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        console_port_count:
-          type: integer
-          readOnly: true
-        console_server_port_count:
-          type: integer
-          readOnly: true
-        power_port_count:
-          type: integer
-          readOnly: true
-        power_outlet_count:
-          type: integer
-          readOnly: true
-        interface_count:
-          type: integer
-          readOnly: true
-        front_port_count:
-          type: integer
-          readOnly: true
-        rear_port_count:
-          type: integer
-          readOnly: true
-        device_bay_count:
-          type: integer
-          readOnly: true
-        module_bay_count:
-          type: integer
-          readOnly: true
-        inventory_item_count:
-          type: integer
-          readOnly: true
-      required:
-      - created
-      - device_type
-      - display
-      - display_url
-      - id
-      - last_updated
-      - role
-      - site
-      - url
     DeviceWithConfigContextRequest:
       type: object
       description: Adds support for custom fields and tags.
@@ -130723,7 +130427,7 @@ components:
         results:
           type: array
           items:
-            $ref: '#/components/schemas/DeviceWithConfigContext'
+            $ref: '#/components/schemas/Device'
     PaginatedEventRuleList:
       type: object
       required:
@@ -149594,7 +149298,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name

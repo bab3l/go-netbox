@@ -36,6 +36,7 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Comments** | Pointer to **string** |  | [optional] 
 **ConfigTemplate** | Pointer to [**NullableBriefConfigTemplate**](BriefConfigTemplate.md) |  | [optional] 
+**ConfigContext** | Pointer to **interface{}** |  | [optional] [readonly] 
 **LocalContextData** | Pointer to **interface{}** | Local config context data takes precedence over source contexts in the final rendered config context | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
@@ -1016,6 +1017,41 @@ HasConfigTemplate returns a boolean if a field has been set.
 `func (o *Device) UnsetConfigTemplate()`
 
 UnsetConfigTemplate ensures that no value is present for ConfigTemplate, not even an explicit nil
+### GetConfigContext
+
+`func (o *Device) GetConfigContext() interface{}`
+
+GetConfigContext returns the ConfigContext field if non-nil, zero value otherwise.
+
+### GetConfigContextOk
+
+`func (o *Device) GetConfigContextOk() (*interface{}, bool)`
+
+GetConfigContextOk returns a tuple with the ConfigContext field if it's non-nil, zero value otherwise
+and a boolean to check if the value has been set.
+
+### SetConfigContext
+
+`func (o *Device) SetConfigContext(v interface{})`
+
+SetConfigContext sets ConfigContext field to given value.
+
+### HasConfigContext
+
+`func (o *Device) HasConfigContext() bool`
+
+HasConfigContext returns a boolean if a field has been set.
+
+### SetConfigContextNil
+
+`func (o *Device) SetConfigContextNil(b bool)`
+
+ SetConfigContextNil sets the value for ConfigContext to be an explicit nil
+
+### UnsetConfigContext
+`func (o *Device) UnsetConfigContext()`
+
+UnsetConfigContext ensures that no value is present for ConfigContext, not even an explicit nil
 ### GetLocalContextData
 
 `func (o *Device) GetLocalContextData() interface{}`

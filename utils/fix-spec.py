@@ -94,7 +94,7 @@ if 'components' in data and 'schemas' in data['components']:
                                "vrf_count", "cluster_count"],
                     "TenantGroup": ["tenant_count"],
                     "Site": ["circuit_count", "device_count", "prefix_count", "rack_count", 
-                             "virtualmachine_count", "vlan_count"],
+                             "virtualmachine_count", "vlan_count", "display_url"],
                     "SiteGroup": ["site_count"],
                     # Manufacturer and Platform - count fields not returned on create/update
                     "Manufacturer": ["devicetype_count", "inventoryitem_count", "platform_count"],
@@ -109,16 +109,12 @@ if 'components' in data and 'schemas' in data['components']:
                                    "device_bay_template_count", "module_bay_template_count",
                                    "inventory_item_template_count"],
                     # DeviceWithConfigContext - count fields and computed fields not returned on create/update
-                    "DeviceWithConfigContext": ["parent_device", "primary_ip", "config_context",
-                                                "console_port_count", "console_server_port_count",
-                                                "power_port_count", "power_outlet_count",
-                                                "interface_count", "front_port_count", "rear_port_count",
-                                                "device_bay_count", "module_bay_count", "inventory_item_count"],
+                    "DeviceWithConfigContext": ["config_context"],
                     # Brief models - count fields not returned when nested in other responses
                     "BriefDeviceType": ["device_count"],
                     "BriefDeviceRole": ["device_count", "virtualmachine_count"],
                     "BriefSite": ["circuit_count", "device_count", "prefix_count", "rack_count", 
-                                  "virtualmachine_count", "vlan_count"],
+                                  "virtualmachine_count", "vlan_count", "display_url"],
                     "BriefRack": ["device_count"],
                     "BriefPlatform": ["device_count", "virtualmachine_count"],
                     "BriefLocation": ["rack_count", "device_count"],
@@ -182,6 +178,29 @@ if 'components' in data and 'schemas' in data['components']:
                         if r in schema['required']:
                             schema['required'].remove(r)
 
+
+# Merge Device and DeviceWithConfigContext
+# We want to use DeviceWithConfigContext everywhere, but call it Device
+if 'components' in data and 'schemas' in data['components']:
+    if 'Device' in data['components']['schemas'] and 'DeviceWithConfigContext' in data['components']['schemas']:
+        # Replace Device with DeviceWithConfigContext
+        data['components']['schemas']['Device'] = data['components']['schemas']['DeviceWithConfigContext']
+        # Delete DeviceWithConfigContext
+        del data['components']['schemas']['DeviceWithConfigContext']
+        
+        # Update references
+        def update_refs(obj):
+            if isinstance(obj, dict):
+                for k, v in obj.items():
+                    if k == '$ref' and v == '#/components/schemas/DeviceWithConfigContext':
+                        obj[k] = '#/components/schemas/Device'
+                    else:
+                        update_refs(v)
+            elif isinstance(obj, list):
+                for item in obj:
+                    update_refs(item)
+        
+        update_refs(data)
 
 # Save the spec file
 with open(SPEC_PATH, 'w') as file:

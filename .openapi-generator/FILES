@@ -305,7 +305,6 @@ docs/DeviceTypeSubdeviceRoleValue.md
 docs/DeviceTypeWeightUnit.md
 docs/DeviceTypeWeightUnitLabel.md
 docs/DeviceTypeWeightUnitValue.md
-docs/DeviceWithConfigContext.md
 docs/DeviceWithConfigContextRequest.md
 docs/Encryption.md
 docs/End.md
@@ -1303,7 +1302,6 @@ model_device_type_subdevice_role_value.go
 model_device_type_weight_unit.go
 model_device_type_weight_unit_label.go
 model_device_type_weight_unit_value.go
-model_device_with_config_context.go
 model_device_with_config_context_request.go
 model_encryption.go
 model_end.go
