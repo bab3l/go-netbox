@@ -20,10 +20,10 @@ var _ MappedNullable = &PaginatedDeviceWithConfigContextList{}
 
 // PaginatedDeviceWithConfigContextList struct for PaginatedDeviceWithConfigContextList
 type PaginatedDeviceWithConfigContextList struct {
-	Count                int32                     `json:"count"`
-	Next                 NullableString            `json:"next,omitempty"`
-	Previous             NullableString            `json:"previous,omitempty"`
-	Results              []DeviceWithConfigContext `json:"results"`
+	Count                int32          `json:"count"`
+	Next                 NullableString `json:"next,omitempty"`
+	Previous             NullableString `json:"previous,omitempty"`
+	Results              []Device       `json:"results"`
 	AdditionalProperties map[string]interface{}
 }
 
@@ -33,7 +33,7 @@ type _PaginatedDeviceWithConfigContextList PaginatedDeviceWithConfigContextList
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewPaginatedDeviceWithConfigContextList(count int32, results []DeviceWithConfigContext) *PaginatedDeviceWithConfigContextList {
+func NewPaginatedDeviceWithConfigContextList(count int32, results []Device) *PaginatedDeviceWithConfigContextList {
 	this := PaginatedDeviceWithConfigContextList{}
 	this.Count = count
 	this.Results = results
@@ -159,9 +159,9 @@ func (o *PaginatedDeviceWithConfigContextList) UnsetPrevious() {
 }
 
 // GetResults returns the Results field value
-func (o *PaginatedDeviceWithConfigContextList) GetResults() []DeviceWithConfigContext {
+func (o *PaginatedDeviceWithConfigContextList) GetResults() []Device {
 	if o == nil {
-		var ret []DeviceWithConfigContext
+		var ret []Device
 		return ret
 	}
 
@@ -170,7 +170,7 @@ func (o *PaginatedDeviceWithConfigContextList) GetResults() []DeviceWithConfigCo
 
 // GetResultsOk returns a tuple with the Results field value
 // and a boolean to check if the value has been set.
-func (o *PaginatedDeviceWithConfigContextList) GetResultsOk() ([]DeviceWithConfigContext, bool) {
+func (o *PaginatedDeviceWithConfigContextList) GetResultsOk() ([]Device, bool) {
 	if o == nil {
 		return nil, false
 	}
@@ -178,7 +178,7 @@ func (o *PaginatedDeviceWithConfigContextList) GetResultsOk() ([]DeviceWithConfi
 }
 
 // SetResults sets field value
-func (o *PaginatedDeviceWithConfigContextList) SetResults(v []DeviceWithConfigContext) {
+func (o *PaginatedDeviceWithConfigContextList) SetResults(v []Device) {
 	o.Results = v
 }
 

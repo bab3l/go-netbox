@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 **Count** | **int32** |  | 
 **Next** | Pointer to **NullableString** |  | [optional] 
 **Previous** | Pointer to **NullableString** |  | [optional] 
-**Results** | [**[]DeviceWithConfigContext**](DeviceWithConfigContext.md) |  | 
+**Results** | [**[]Device**](Device.md) |  | 
 
 ## Methods
 
 ### NewPaginatedDeviceWithConfigContextList
 
-`func NewPaginatedDeviceWithConfigContextList(count int32, results []DeviceWithConfigContext, ) *PaginatedDeviceWithConfigContextList`
+`func NewPaginatedDeviceWithConfigContextList(count int32, results []Device, ) *PaginatedDeviceWithConfigContextList`
 
 NewPaginatedDeviceWithConfigContextList instantiates a new PaginatedDeviceWithConfigContextList object
 This constructor will assign default values to properties that have it defined,
@@ -120,20 +120,20 @@ HasPrevious returns a boolean if a field has been set.
 UnsetPrevious ensures that no value is present for Previous, not even an explicit nil
 ### GetResults
 
-`func (o *PaginatedDeviceWithConfigContextList) GetResults() []DeviceWithConfigContext`
+`func (o *PaginatedDeviceWithConfigContextList) GetResults() []Device`
 
 GetResults returns the Results field if non-nil, zero value otherwise.
 
 ### GetResultsOk
 
-`func (o *PaginatedDeviceWithConfigContextList) GetResultsOk() (*[]DeviceWithConfigContext, bool)`
+`func (o *PaginatedDeviceWithConfigContextList) GetResultsOk() (*[]Device, bool)`
 
 GetResultsOk returns a tuple with the Results field if it's non-nil, zero value otherwise
 and a boolean to check if the value has been set.
 
 ### SetResults
 
-`func (o *PaginatedDeviceWithConfigContextList) SetResults(v []DeviceWithConfigContext)`
+`func (o *PaginatedDeviceWithConfigContextList) SetResults(v []Device)`
 
 SetResults sets Results field to given value.
 

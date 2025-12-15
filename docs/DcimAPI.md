@@ -8748,7 +8748,7 @@ Name | Type | Description  | Notes
 
 ## DcimDevicesBulkPartialUpdate
 
-> []DeviceWithConfigContext DcimDevicesBulkPartialUpdate(ctx).DeviceWithConfigContextRequest(deviceWithConfigContextRequest).Execute()
+> []Device DcimDevicesBulkPartialUpdate(ctx).DeviceWithConfigContextRequest(deviceWithConfigContextRequest).Execute()
 
 
 
@@ -8776,7 +8776,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DcimAPI.DcimDevicesBulkPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DcimDevicesBulkPartialUpdate`: []DeviceWithConfigContext
+	// response from `DcimDevicesBulkPartialUpdate`: []Device
 	fmt.Fprintf(os.Stdout, "Response from `DcimAPI.DcimDevicesBulkPartialUpdate`: %v\n", resp)
 }
 ```
@@ -8796,7 +8796,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]DeviceWithConfigContext**](DeviceWithConfigContext.md)
+[**[]Device**](Device.md)
 
 ### Authorization
 
@@ -8814,7 +8814,7 @@ Name | Type | Description  | Notes
 
 ## DcimDevicesBulkUpdate
 
-> []DeviceWithConfigContext DcimDevicesBulkUpdate(ctx).DeviceWithConfigContextRequest(deviceWithConfigContextRequest).Execute()
+> []Device DcimDevicesBulkUpdate(ctx).DeviceWithConfigContextRequest(deviceWithConfigContextRequest).Execute()
 
 
 
@@ -8842,7 +8842,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DcimAPI.DcimDevicesBulkUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DcimDevicesBulkUpdate`: []DeviceWithConfigContext
+	// response from `DcimDevicesBulkUpdate`: []Device
 	fmt.Fprintf(os.Stdout, "Response from `DcimAPI.DcimDevicesBulkUpdate`: %v\n", resp)
 }
 ```
@@ -8862,7 +8862,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[]DeviceWithConfigContext**](DeviceWithConfigContext.md)
+[**[]Device**](Device.md)
 
 ### Authorization
 
@@ -8880,7 +8880,7 @@ Name | Type | Description  | Notes
 
 ## DcimDevicesCreate
 
-> DeviceWithConfigContext DcimDevicesCreate(ctx).WritableDeviceWithConfigContextRequest(writableDeviceWithConfigContextRequest).Execute()
+> Device DcimDevicesCreate(ctx).WritableDeviceWithConfigContextRequest(writableDeviceWithConfigContextRequest).Execute()
 
 
 
@@ -8908,7 +8908,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DcimAPI.DcimDevicesCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DcimDevicesCreate`: DeviceWithConfigContext
+	// response from `DcimDevicesCreate`: Device
 	fmt.Fprintf(os.Stdout, "Response from `DcimAPI.DcimDevicesCreate`: %v\n", resp)
 }
 ```
@@ -8928,7 +8928,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeviceWithConfigContext**](DeviceWithConfigContext.md)
+[**Device**](Device.md)
 
 ### Authorization
 
@@ -9647,7 +9647,7 @@ Name | Type | Description  | Notes
 
 ## DcimDevicesPartialUpdate
 
-> DeviceWithConfigContext DcimDevicesPartialUpdate(ctx, id).PatchedWritableDeviceWithConfigContextRequest(patchedWritableDeviceWithConfigContextRequest).Execute()
+> Device DcimDevicesPartialUpdate(ctx, id).PatchedWritableDeviceWithConfigContextRequest(patchedWritableDeviceWithConfigContextRequest).Execute()
 
 
 
@@ -9676,7 +9676,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DcimAPI.DcimDevicesPartialUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DcimDevicesPartialUpdate`: DeviceWithConfigContext
+	// response from `DcimDevicesPartialUpdate`: Device
 	fmt.Fprintf(os.Stdout, "Response from `DcimAPI.DcimDevicesPartialUpdate`: %v\n", resp)
 }
 ```
@@ -9701,7 +9701,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeviceWithConfigContext**](DeviceWithConfigContext.md)
+[**Device**](Device.md)
 
 ### Authorization
 
@@ -9719,7 +9719,7 @@ Name | Type | Description  | Notes
 
 ## DcimDevicesRenderConfigCreate
 
-> DeviceWithConfigContext DcimDevicesRenderConfigCreate(ctx, id).WritableDeviceWithConfigContextRequest(writableDeviceWithConfigContextRequest).Format(format).Execute()
+> Device DcimDevicesRenderConfigCreate(ctx, id).WritableDeviceWithConfigContextRequest(writableDeviceWithConfigContextRequest).Format(format).Execute()
 
 
 
@@ -9749,7 +9749,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DcimAPI.DcimDevicesRenderConfigCreate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DcimDevicesRenderConfigCreate`: DeviceWithConfigContext
+	// response from `DcimDevicesRenderConfigCreate`: Device
 	fmt.Fprintf(os.Stdout, "Response from `DcimAPI.DcimDevicesRenderConfigCreate`: %v\n", resp)
 }
 ```
@@ -9775,7 +9775,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeviceWithConfigContext**](DeviceWithConfigContext.md)
+[**Device**](Device.md)
 
 ### Authorization
 
@@ -9793,7 +9793,7 @@ Name | Type | Description  | Notes
 
 ## DcimDevicesRetrieve
 
-> DeviceWithConfigContext DcimDevicesRetrieve(ctx, id).Execute()
+> Device DcimDevicesRetrieve(ctx, id).Execute()
 
 
 
@@ -9821,7 +9821,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DcimAPI.DcimDevicesRetrieve``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DcimDevicesRetrieve`: DeviceWithConfigContext
+	// response from `DcimDevicesRetrieve`: Device
 	fmt.Fprintf(os.Stdout, "Response from `DcimAPI.DcimDevicesRetrieve`: %v\n", resp)
 }
 ```
@@ -9845,7 +9845,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeviceWithConfigContext**](DeviceWithConfigContext.md)
+[**Device**](Device.md)
 
 ### Authorization
 
@@ -9863,7 +9863,7 @@ Name | Type | Description  | Notes
 
 ## DcimDevicesUpdate
 
-> DeviceWithConfigContext DcimDevicesUpdate(ctx, id).WritableDeviceWithConfigContextRequest(writableDeviceWithConfigContextRequest).Execute()
+> Device DcimDevicesUpdate(ctx, id).WritableDeviceWithConfigContextRequest(writableDeviceWithConfigContextRequest).Execute()
 
 
 
@@ -9892,7 +9892,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "Error when calling `DcimAPI.DcimDevicesUpdate``: %v\n", err)
 		fmt.Fprintf(os.Stderr, "Full HTTP response: %v\n", r)
 	}
-	// response from `DcimDevicesUpdate`: DeviceWithConfigContext
+	// response from `DcimDevicesUpdate`: Device
 	fmt.Fprintf(os.Stdout, "Response from `DcimAPI.DcimDevicesUpdate`: %v\n", resp)
 }
 ```
@@ -9917,7 +9917,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**DeviceWithConfigContext**](DeviceWithConfigContext.md)
+[**Device**](Device.md)
 
 ### Authorization
 
