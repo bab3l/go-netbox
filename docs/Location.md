@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Slug** | **string** |  | 
@@ -28,7 +28,7 @@ Name | Type | Description | Notes
 
 ### NewLocation
 
-`func NewLocation(id int32, url string, displayUrl string, display string, name string, slug string, site BriefSite, created NullableTime, lastUpdated NullableTime, rackCount int32, deviceCount int32, depth int32, ) *Location`
+`func NewLocation(id int32, url string, display string, name string, slug string, site BriefSite, created NullableTime, lastUpdated NullableTime, rackCount int32, deviceCount int32, depth int32, ) *Location`
 
 NewLocation instantiates a new Location object
 This constructor will assign default values to properties that have it defined,
@@ -102,6 +102,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *Location) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Ssid** | **string** |  | 
 **Description** | Pointer to **string** |  | [optional] 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewWirelessLAN
 
-`func NewWirelessLAN(id int32, url string, displayUrl string, display string, ssid string, created NullableTime, lastUpdated NullableTime, ) *WirelessLAN`
+`func NewWirelessLAN(id int32, url string, display string, ssid string, created NullableTime, lastUpdated NullableTime, ) *WirelessLAN`
 
 NewWirelessLAN instantiates a new WirelessLAN object
 This constructor will assign default values to properties that have it defined,
@@ -101,6 +101,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *WirelessLAN) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

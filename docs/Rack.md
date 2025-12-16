@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **FacilityId** | Pointer to **NullableString** |  | [optional] 
@@ -44,7 +44,7 @@ Name | Type | Description | Notes
 
 ### NewRack
 
-`func NewRack(id int32, url string, displayUrl string, display string, name string, site BriefSite, created NullableTime, lastUpdated NullableTime, ) *Rack`
+`func NewRack(id int32, url string, display string, name string, site BriefSite, created NullableTime, lastUpdated NullableTime, ) *Rack`
 
 NewRack instantiates a new Rack object
 This constructor will assign default values to properties that have it defined,
@@ -118,6 +118,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *Rack) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

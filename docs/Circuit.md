@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Cid** | **string** | Unique circuit ID | 
 **Provider** | [**BriefProvider**](BriefProvider.md) |  | 
@@ -31,7 +31,7 @@ Name | Type | Description | Notes
 
 ### NewCircuit
 
-`func NewCircuit(id int32, url string, displayUrl string, display string, cid string, provider BriefProvider, type_ BriefCircuitType, terminationA NullableCircuitCircuitTermination, terminationZ NullableCircuitCircuitTermination, created NullableTime, lastUpdated NullableTime, ) *Circuit`
+`func NewCircuit(id int32, url string, display string, cid string, provider BriefProvider, type_ BriefCircuitType, terminationA NullableCircuitCircuitTermination, terminationZ NullableCircuitCircuitTermination, created NullableTime, lastUpdated NullableTime, ) *Circuit`
 
 NewCircuit instantiates a new Circuit object
 This constructor will assign default values to properties that have it defined,
@@ -105,6 +105,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *Circuit) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

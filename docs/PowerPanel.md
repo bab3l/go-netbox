@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Site** | [**BriefSite**](BriefSite.md) |  | 
 **Location** | Pointer to [**NullableBriefLocation**](BriefLocation.md) |  | [optional] 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewPowerPanel
 
-`func NewPowerPanel(id int32, url string, displayUrl string, display string, site BriefSite, name string, created NullableTime, lastUpdated NullableTime, ) *PowerPanel`
+`func NewPowerPanel(id int32, url string, display string, site BriefSite, name string, created NullableTime, lastUpdated NullableTime, ) *PowerPanel`
 
 NewPowerPanel instantiates a new PowerPanel object
 This constructor will assign default values to properties that have it defined,
@@ -97,6 +97,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *PowerPanel) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

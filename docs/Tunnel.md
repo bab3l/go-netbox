@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Name** | **string** |  | 
 **Status** | [**TunnelStatus**](TunnelStatus.md) |  | 
@@ -27,7 +27,7 @@ Name | Type | Description | Notes
 
 ### NewTunnel
 
-`func NewTunnel(id int32, url string, displayUrl string, display string, name string, status TunnelStatus, encapsulation TunnelEncapsulation, created NullableTime, lastUpdated NullableTime, ) *Tunnel`
+`func NewTunnel(id int32, url string, display string, name string, status TunnelStatus, encapsulation TunnelEncapsulation, created NullableTime, lastUpdated NullableTime, ) *Tunnel`
 
 NewTunnel instantiates a new Tunnel object
 This constructor will assign default values to properties that have it defined,
@@ -101,6 +101,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *Tunnel) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

@@ -42,6 +42,10 @@ if 'components' in data and 'schemas' in data['components']:
                         if 'nullable' in schema['properties'][ntype]:
                             schema['properties'][ntype].pop('nullable')
 
+            # Make display_url optional globally as it causes validation issues in nested objects
+            if 'required' in schema and 'display_url' in schema['required']:
+                schema['required'].remove('display_url')
+
             change_type = {
                 "BriefCustomFieldChoiceSet": {
                     "choices_count": "integer"
@@ -155,6 +159,8 @@ if 'components' in data and 'schemas' in data['components']:
                     "ModuleBay": ["device"],
                     # BriefModule - device and module_bay are not returned in all contexts (e.g., installed_module in ModuleBay)
                     "BriefModule": ["device", "module_bay"],
+                    # ConfigContext - display_url is computed and causes validation issues
+                    "ConfigContext": ["data_path", "data_file", "data_synced"],
                     # ASNRange - asn_count is computed and not returned on create/retrieve
                     "ASNRange": ["asn_count"],
                     # VPN models - display_url is computed and causes validation issues

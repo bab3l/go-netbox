@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Source** | [**BriefDataSource**](BriefDataSource.md) |  | [readonly] 
 **Path** | **string** | File path relative to the data source&#39;s root | [readonly] 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewDataFile
 
-`func NewDataFile(id int32, url string, displayUrl string, display string, source BriefDataSource, path string, lastUpdated time.Time, size int32, hash string, ) *DataFile`
+`func NewDataFile(id int32, url string, display string, source BriefDataSource, path string, lastUpdated time.Time, size int32, hash string, ) *DataFile`
 
 NewDataFile instantiates a new DataFile object
 This constructor will assign default values to properties that have it defined,
@@ -92,6 +92,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *DataFile) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

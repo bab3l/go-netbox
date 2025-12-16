@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Tunnel** | [**BriefTunnel**](BriefTunnel.md) |  | 
 **Role** | [**TunnelTerminationRole**](TunnelTerminationRole.md) |  | 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewTunnelTermination
 
-`func NewTunnelTermination(id int32, url string, displayUrl string, display string, tunnel BriefTunnel, role TunnelTerminationRole, terminationType string, termination interface{}, created NullableTime, lastUpdated NullableTime, ) *TunnelTermination`
+`func NewTunnelTermination(id int32, url string, display string, tunnel BriefTunnel, role TunnelTerminationRole, terminationType string, termination interface{}, created NullableTime, lastUpdated NullableTime, ) *TunnelTermination`
 
 NewTunnelTermination instantiates a new TunnelTermination object
 This constructor will assign default values to properties that have it defined,
@@ -97,6 +97,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *TunnelTermination) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 
