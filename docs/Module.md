@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Device** | [**BriefDevice**](BriefDevice.md) |  | 
 **ModuleBay** | [**NestedModuleBay**](NestedModuleBay.md) |  | 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewModule
 
-`func NewModule(id int32, url string, displayUrl string, display string, device BriefDevice, moduleBay NestedModuleBay, moduleType BriefModuleType, created NullableTime, lastUpdated NullableTime, ) *Module`
+`func NewModule(id int32, url string, display string, device BriefDevice, moduleBay NestedModuleBay, moduleType BriefModuleType, created NullableTime, lastUpdated NullableTime, ) *Module`
 
 NewModule instantiates a new Module object
 This constructor will assign default values to properties that have it defined,
@@ -99,6 +99,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *Module) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 

@@ -110234,7 +110234,6 @@ components:
       required:
       - asn
       - display
-      - display_url
       - id
       - url
     ASNRange:
@@ -110304,7 +110303,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - end
       - id
       - last_updated
@@ -110463,7 +110461,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - family
       - id
       - last_updated
@@ -113850,7 +113847,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - url
@@ -114218,7 +114214,6 @@ components:
       - cid
       - created
       - display
-      - display_url
       - id
       - last_updated
       - provider
@@ -114282,7 +114277,6 @@ components:
           maxLength: 200
       required:
       - display
-      - display_url
       - id
       - provider_network
       - site
@@ -114386,7 +114380,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -114458,7 +114451,6 @@ components:
       - circuit
       - created
       - display
-      - display_url
       - group
       - id
       - last_updated
@@ -114716,7 +114708,6 @@ components:
       - circuit
       - created
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -114843,7 +114834,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -114976,7 +114966,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -115034,7 +115023,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -115173,7 +115161,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -115321,7 +115308,6 @@ components:
       - created
       - data
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -115471,7 +115457,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -115717,7 +115702,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -116246,7 +116230,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -116634,7 +116617,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -116829,7 +116811,6 @@ components:
       - contact_count
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -116956,7 +116937,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -117233,7 +117213,6 @@ components:
       - created
       - data_type
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -117315,7 +117294,6 @@ components:
       - choices_count
       - created
       - display
-      - display_url
       - extra_choices
       - id
       - last_updated
@@ -117645,7 +117623,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - link_text
@@ -117795,7 +117772,6 @@ components:
           description: SHA256 hash of the file data
       required:
       - display
-      - display_url
       - hash
       - id
       - last_updated
@@ -117918,7 +117894,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - file_count
       - id
       - last_synced
@@ -118269,7 +118244,6 @@ components:
       - device_bay_count
       - device_type
       - display
-      - display_url
       - front_port_count
       - id
       - interface_count
@@ -118339,7 +118313,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -118516,7 +118489,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -118781,7 +118753,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - manufacturer
@@ -119224,7 +119195,6 @@ components:
       - action_type
       - created
       - display
-      - display_url
       - event_types
       - id
       - last_updated
@@ -119387,7 +119357,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -119528,7 +119497,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - group_id
       - id
       - ip_addresses
@@ -119994,7 +119962,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -120034,7 +120001,6 @@ components:
           maxLength: 200
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -120840,7 +120806,6 @@ components:
           readOnly: true
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -121595,7 +121560,6 @@ components:
       - assigned_object
       - created
       - display
-      - display_url
       - family
       - id
       - last_updated
@@ -121798,7 +121762,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - end_address
       - family
       - id
@@ -124173,7 +124136,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - l2vpn_termination
       - last_updated
@@ -126616,7 +126578,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -126740,7 +126701,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -127008,7 +126968,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - error
       - id
       - job_id
@@ -127099,7 +127058,6 @@ components:
       - comments
       - created
       - display
-      - display_url
       - id
       - last_updated
       - url
@@ -127275,7 +127233,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -127422,7 +127379,6 @@ components:
       - assigned_object_type
       - created
       - display
-      - display_url
       - id
       - l2vpn
       - last_updated
@@ -127556,7 +127512,6 @@ components:
       - created
       - device_count
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -127683,7 +127638,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -127807,7 +127761,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - module_bay
@@ -127875,7 +127828,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -128189,7 +128141,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - manufacturer
@@ -128310,7 +128261,6 @@ components:
       required:
       - _depth
       - display
-      - display_url
       - id
       - name
       - slug
@@ -128367,7 +128317,6 @@ components:
           maxLength: 64
       required:
       - display
-      - display_url
       - id
       - url
     NestedDeviceRequest:
@@ -128413,7 +128362,6 @@ components:
           maxLength: 150
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -128449,7 +128397,6 @@ components:
       required:
       - address
       - display
-      - display_url
       - family
       - id
       - url
@@ -128510,7 +128457,6 @@ components:
       - _occupied
       - device
       - display
-      - display_url
       - id
       - name
       - url
@@ -128619,7 +128565,6 @@ components:
       required:
       - _depth
       - display
-      - display_url
       - id
       - name
       - slug
@@ -128675,7 +128620,6 @@ components:
           maxLength: 64
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -128729,7 +128673,6 @@ components:
       required:
       - account
       - display
-      - display_url
       - id
       - url
     NestedRegion:
@@ -128770,7 +128713,6 @@ components:
       required:
       - _depth
       - display
-      - display_url
       - id
       - name
       - slug
@@ -128835,7 +128777,6 @@ components:
       required:
       - _depth
       - display
-      - display_url
       - id
       - name
       - slug
@@ -128899,7 +128840,6 @@ components:
           maxLength: 6
       required:
       - display
-      - display_url
       - id
       - name
       - slug
@@ -128969,7 +128909,6 @@ components:
       required:
       - _depth
       - display
-      - display_url
       - id
       - name
       - slug
@@ -129028,7 +128967,6 @@ components:
           maxLength: 150
       required:
       - display
-      - display_url
       - id
       - url
       - username
@@ -129065,7 +129003,6 @@ components:
           maxLength: 64
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -129115,7 +129052,6 @@ components:
           maxLength: 64
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -129173,7 +129109,6 @@ components:
       required:
       - _depth
       - display
-      - display_url
       - id
       - name
       - slug
@@ -129229,7 +129164,6 @@ components:
           maxLength: 32
       required:
       - display
-      - display_url
       - id
       - url
     NestedWirelessLinkRequest:
@@ -129354,7 +129288,6 @@ components:
             $ref: '#/components/schemas/User'
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -129509,7 +129442,6 @@ components:
       - changed_object_id
       - changed_object_type
       - display
-      - display_url
       - id
       - postchange_data
       - prechange_data
@@ -129572,7 +129504,6 @@ components:
       required:
       - actions
       - display
-      - display_url
       - id
       - name
       - object_types
@@ -141830,7 +141761,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -142056,7 +141986,6 @@ components:
       - connected_endpoints_type
       - created
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -142681,7 +142610,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -143926,7 +143854,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -144496,7 +144423,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -145840,7 +145766,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - family
       - id
       - last_updated
@@ -145972,7 +145897,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -146032,7 +145956,6 @@ components:
       - account
       - created
       - display
-      - display_url
       - id
       - last_updated
       - provider
@@ -146118,7 +146041,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -146245,7 +146167,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -146571,7 +146492,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -146834,7 +146754,6 @@ components:
       - created
       - description
       - display
-      - display_url
       - id
       - last_updated
       - rack
@@ -146933,7 +146852,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -147180,7 +147098,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - manufacturer
@@ -147705,7 +147622,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - link_peers
@@ -148485,7 +148401,6 @@ components:
       - _depth
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -148582,7 +148497,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -148669,7 +148583,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -148761,7 +148674,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -148853,7 +148765,6 @@ components:
       required:
       - description
       - display
-      - display_url
       - id
       - is_executable
       - module
@@ -148963,7 +148874,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -149097,7 +149007,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -149364,7 +149273,6 @@ components:
       - _depth
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -149615,7 +149523,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -149747,7 +149654,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -149814,7 +149720,6 @@ components:
       - _depth
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -149930,7 +149835,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - url
       - user
@@ -149983,7 +149887,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - key
       - last_used
@@ -150176,7 +150079,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - encapsulation
       - id
       - last_updated
@@ -150235,7 +150137,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -150424,7 +150325,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - role
@@ -150537,7 +150437,6 @@ components:
             $ref: '#/components/schemas/ObjectPermission'
       required:
       - display
-      - display_url
       - id
       - url
       - username
@@ -150695,7 +150594,6 @@ components:
           readOnly: true
       required:
       - display
-      - display_url
       - id
       - name
       - url
@@ -150764,7 +150662,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -150969,7 +150866,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -151118,7 +151014,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -151228,7 +151123,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - member_count
@@ -151360,7 +151254,6 @@ components:
       - created
       - device
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -151473,7 +151366,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -151665,7 +151557,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - interface_count
       - last_updated
@@ -151880,7 +151771,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -152102,7 +151992,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - last_updated
       - ssid
@@ -152168,7 +152057,6 @@ components:
       - _depth
       - created
       - display
-      - display_url
       - id
       - last_updated
       - name
@@ -152450,7 +152338,6 @@ components:
       required:
       - created
       - display
-      - display_url
       - id
       - interface_a
       - interface_b

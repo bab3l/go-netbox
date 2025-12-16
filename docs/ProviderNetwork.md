@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **int32** |  | [readonly] 
 **Url** | **string** |  | [readonly] 
-**DisplayUrl** | **string** |  | [readonly] 
+**DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **Provider** | [**BriefProvider**](BriefProvider.md) |  | 
 **Name** | **string** |  | 
@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 
 ### NewProviderNetwork
 
-`func NewProviderNetwork(id int32, url string, displayUrl string, display string, provider BriefProvider, name string, created NullableTime, lastUpdated NullableTime, ) *ProviderNetwork`
+`func NewProviderNetwork(id int32, url string, display string, provider BriefProvider, name string, created NullableTime, lastUpdated NullableTime, ) *ProviderNetwork`
 
 NewProviderNetwork instantiates a new ProviderNetwork object
 This constructor will assign default values to properties that have it defined,
@@ -96,6 +96,11 @@ and a boolean to check if the value has been set.
 
 SetDisplayUrl sets DisplayUrl field to given value.
 
+### HasDisplayUrl
+
+`func (o *ProviderNetwork) HasDisplayUrl() bool`
+
+HasDisplayUrl returns a boolean if a field has been set.
 
 ### GetDisplay
 
