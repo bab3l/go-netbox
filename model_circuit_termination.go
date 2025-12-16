@@ -47,8 +47,8 @@ type CircuitTermination struct {
 	LinkPeersType        NullableString         `json:"link_peers_type"`
 	Tags                 []NestedTag            `json:"tags,omitempty"`
 	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
-	Created              NullableTime           `json:"created"`
-	LastUpdated          NullableTime           `json:"last_updated"`
+	Created              NullableTime           `json:"created,omitempty"`
+	LastUpdated          NullableTime           `json:"last_updated,omitempty"`
 	Occupied             bool                   `json:"_occupied"`
 	AdditionalProperties map[string]interface{}
 }
@@ -59,7 +59,7 @@ type _CircuitTermination CircuitTermination
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewCircuitTermination(id int32, url string, display string, circuit BriefCircuit, termSide Termination1, cable NullableBriefCable, linkPeers []interface{}, linkPeersType NullableString, created NullableTime, lastUpdated NullableTime, occupied bool) *CircuitTermination {
+func NewCircuitTermination(id int32, url string, display string, circuit BriefCircuit, termSide Termination1, cable NullableBriefCable, linkPeers []interface{}, linkPeersType NullableString, occupied bool) *CircuitTermination {
 	this := CircuitTermination{}
 	this.Id = id
 	this.Url = url
@@ -69,8 +69,6 @@ func NewCircuitTermination(id int32, url string, display string, circuit BriefCi
 	this.Cable = cable
 	this.LinkPeers = linkPeers
 	this.LinkPeersType = linkPeersType
-	this.Created = created
-	this.LastUpdated = lastUpdated
 	this.Occupied = occupied
 	return &this
 }
@@ -707,18 +705,16 @@ func (o *CircuitTermination) SetCustomFields(v map[string]interface{}) {
 	o.CustomFields = v
 }
 
-// GetCreated returns the Created field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// GetCreated returns the Created field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitTermination) GetCreated() time.Time {
-	if o == nil || o.Created.Get() == nil {
+	if o == nil || IsNil(o.Created.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.Created.Get()
 }
 
-// GetCreatedOk returns a tuple with the Created field value
+// GetCreatedOk returns a tuple with the Created field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CircuitTermination) GetCreatedOk() (*time.Time, bool) {
@@ -728,23 +724,40 @@ func (o *CircuitTermination) GetCreatedOk() (*time.Time, bool) {
 	return o.Created.Get(), o.Created.IsSet()
 }
 
-// SetCreated sets field value
+// HasCreated returns a boolean if a field has been set.
+func (o *CircuitTermination) HasCreated() bool {
+	if o != nil && o.Created.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCreated gets a reference to the given NullableTime and assigns it to the Created field.
 func (o *CircuitTermination) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-// GetLastUpdated returns the LastUpdated field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// SetCreatedNil sets the value for Created to be an explicit nil
+func (o *CircuitTermination) SetCreatedNil() {
+	o.Created.Set(nil)
+}
+
+// UnsetCreated ensures that no value is present for Created, not even an explicit nil
+func (o *CircuitTermination) UnsetCreated() {
+	o.Created.Unset()
+}
+
+// GetLastUpdated returns the LastUpdated field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *CircuitTermination) GetLastUpdated() time.Time {
-	if o == nil || o.LastUpdated.Get() == nil {
+	if o == nil || IsNil(o.LastUpdated.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.LastUpdated.Get()
 }
 
-// GetLastUpdatedOk returns a tuple with the LastUpdated field value
+// GetLastUpdatedOk returns a tuple with the LastUpdated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *CircuitTermination) GetLastUpdatedOk() (*time.Time, bool) {
@@ -754,9 +767,28 @@ func (o *CircuitTermination) GetLastUpdatedOk() (*time.Time, bool) {
 	return o.LastUpdated.Get(), o.LastUpdated.IsSet()
 }
 
-// SetLastUpdated sets field value
+// HasLastUpdated returns a boolean if a field has been set.
+func (o *CircuitTermination) HasLastUpdated() bool {
+	if o != nil && o.LastUpdated.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastUpdated gets a reference to the given NullableTime and assigns it to the LastUpdated field.
 func (o *CircuitTermination) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
+}
+
+// SetLastUpdatedNil sets the value for LastUpdated to be an explicit nil
+func (o *CircuitTermination) SetLastUpdatedNil() {
+	o.LastUpdated.Set(nil)
+}
+
+// UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+func (o *CircuitTermination) UnsetLastUpdated() {
+	o.LastUpdated.Unset()
 }
 
 // GetOccupied returns the Occupied field value
@@ -837,8 +869,12 @@ func (o CircuitTermination) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomFields) {
 		toSerialize["custom_fields"] = o.CustomFields
 	}
-	toSerialize["created"] = o.Created.Get()
-	toSerialize["last_updated"] = o.LastUpdated.Get()
+	if o.Created.IsSet() {
+		toSerialize["created"] = o.Created.Get()
+	}
+	if o.LastUpdated.IsSet() {
+		toSerialize["last_updated"] = o.LastUpdated.Get()
+	}
 	toSerialize["_occupied"] = o.Occupied
 
 	for key, value := range o.AdditionalProperties {
@@ -861,8 +897,6 @@ func (o *CircuitTermination) UnmarshalJSON(data []byte) (err error) {
 		"cable",
 		"link_peers",
 		"link_peers_type",
-		"created",
-		"last_updated",
 		"_occupied",
 	}
 

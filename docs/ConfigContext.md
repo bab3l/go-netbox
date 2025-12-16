@@ -30,14 +30,14 @@ Name | Type | Description | Notes
 **DataFile** | Pointer to [**BriefDataFile**](BriefDataFile.md) |  | [optional] [readonly] 
 **DataSynced** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **Data** | **interface{}** |  | 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewConfigContext
 
-`func NewConfigContext(id int32, url string, display string, name string, data interface{}, created NullableTime, lastUpdated NullableTime, ) *ConfigContext`
+`func NewConfigContext(id int32, url string, display string, name string, data interface{}, ) *ConfigContext`
 
 NewConfigContext instantiates a new ConfigContext object
 This constructor will assign default values to properties that have it defined,
@@ -716,6 +716,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *ConfigContext) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -746,6 +751,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *ConfigContext) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

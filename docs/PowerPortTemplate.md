@@ -15,14 +15,14 @@ Name | Type | Description | Notes
 **MaximumDraw** | Pointer to **NullableInt32** | Maximum power draw (watts) | [optional] 
 **AllocatedDraw** | Pointer to **NullableInt32** | Allocated power draw (watts) | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewPowerPortTemplate
 
-`func NewPowerPortTemplate(id int32, url string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *PowerPortTemplate`
+`func NewPowerPortTemplate(id int32, url string, display string, name string, ) *PowerPortTemplate`
 
 NewPowerPortTemplate instantiates a new PowerPortTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -361,6 +361,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *PowerPortTemplate) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -391,6 +396,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *PowerPortTemplate) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

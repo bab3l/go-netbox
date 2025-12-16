@@ -15,14 +15,14 @@ Name | Type | Description | Notes
 **PowerPort** | Pointer to [**NullableBriefPowerPortTemplate**](BriefPowerPortTemplate.md) |  | [optional] 
 **FeedLeg** | Pointer to [**NullablePowerOutletFeedLeg**](PowerOutletFeedLeg.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewPowerOutletTemplate
 
-`func NewPowerOutletTemplate(id int32, url string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *PowerOutletTemplate`
+`func NewPowerOutletTemplate(id int32, url string, display string, name string, ) *PowerOutletTemplate`
 
 NewPowerOutletTemplate instantiates a new PowerOutletTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -361,6 +361,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *PowerOutletTemplate) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -391,6 +396,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *PowerOutletTemplate) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

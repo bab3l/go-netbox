@@ -42,9 +42,13 @@ if 'components' in data and 'schemas' in data['components']:
                         if 'nullable' in schema['properties'][ntype]:
                             schema['properties'][ntype].pop('nullable')
 
-            # Make display_url optional globally as it causes validation issues in nested objects
-            if 'required' in schema and 'display_url' in schema['required']:
-                schema['required'].remove('display_url')
+            # Make display_url, created, last_updated, and updated optional globally
+            # These fields are read-only and often cause validation issues during import or when nested
+            optional_fields = ['display_url', 'created', 'last_updated', 'updated']
+            if 'required' in schema:
+                for field in optional_fields:
+                    if field in schema['required']:
+                        schema['required'].remove(field)
 
             change_type = {
                 "BriefCustomFieldChoiceSet": {

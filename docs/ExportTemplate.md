@@ -19,14 +19,14 @@ Name | Type | Description | Notes
 **DataPath** | Pointer to **string** | Path to remote file (relative to data source root) | [optional] [readonly] 
 **DataFile** | Pointer to [**BriefDataFile**](BriefDataFile.md) |  | [optional] [readonly] 
 **DataSynced** | Pointer to **NullableTime** |  | [optional] [readonly] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewExportTemplate
 
-`func NewExportTemplate(id int32, url string, display string, objectTypes []string, name string, templateCode string, created NullableTime, lastUpdated NullableTime, ) *ExportTemplate`
+`func NewExportTemplate(id int32, url string, display string, objectTypes []string, name string, templateCode string, ) *ExportTemplate`
 
 NewExportTemplate instantiates a new ExportTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -415,6 +415,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *ExportTemplate) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -445,6 +450,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *ExportTemplate) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

@@ -11,13 +11,13 @@ Name | Type | Description | Notes
 **ObjectId** | **int64** |  | 
 **Object** | **interface{}** |  | [readonly] 
 **User** | [**BriefUser**](BriefUser.md) |  | 
-**Created** | **time.Time** |  | [readonly] 
+**Created** | Pointer to **time.Time** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewBookmark
 
-`func NewBookmark(id int32, url string, display string, objectType string, objectId int64, object interface{}, user BriefUser, created time.Time, ) *Bookmark`
+`func NewBookmark(id int32, url string, display string, objectType string, objectId int64, object interface{}, user BriefUser, ) *Bookmark`
 
 NewBookmark instantiates a new Bookmark object
 This constructor will assign default values to properties that have it defined,
@@ -201,6 +201,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *Bookmark) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

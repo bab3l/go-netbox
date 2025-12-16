@@ -14,14 +14,14 @@ Name | Type | Description | Notes
 **ExtraChoices** | **[][]interface{}** |  | 
 **OrderAlphabetically** | Pointer to **bool** | Choices are automatically ordered alphabetically | [optional] 
 **ChoicesCount** | **int32** |  | [readonly] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewCustomFieldChoiceSet
 
-`func NewCustomFieldChoiceSet(id int32, url string, display string, name string, extraChoices [][]interface{}, choicesCount int32, created NullableTime, lastUpdated NullableTime, ) *CustomFieldChoiceSet`
+`func NewCustomFieldChoiceSet(id int32, url string, display string, name string, extraChoices [][]interface{}, choicesCount int32, ) *CustomFieldChoiceSet`
 
 NewCustomFieldChoiceSet instantiates a new CustomFieldChoiceSet object
 This constructor will assign default values to properties that have it defined,
@@ -275,6 +275,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *CustomFieldChoiceSet) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -305,6 +310,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *CustomFieldChoiceSet) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

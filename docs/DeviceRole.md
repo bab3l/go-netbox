@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **DeviceCount** | Pointer to **int64** |  | [optional] [readonly] 
 **VirtualmachineCount** | Pointer to **int64** |  | [optional] [readonly] 
 
@@ -25,7 +25,7 @@ Name | Type | Description | Notes
 
 ### NewDeviceRole
 
-`func NewDeviceRole(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, ) *DeviceRole`
+`func NewDeviceRole(id int32, url string, display string, name string, slug string, ) *DeviceRole`
 
 NewDeviceRole instantiates a new DeviceRole object
 This constructor will assign default values to properties that have it defined,
@@ -344,6 +344,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *DeviceRole) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -374,6 +379,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *DeviceRole) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

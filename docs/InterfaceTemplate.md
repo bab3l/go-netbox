@@ -19,14 +19,14 @@ Name | Type | Description | Notes
 **PoeMode** | Pointer to [**NullableInterfaceTemplatePoeMode**](InterfaceTemplatePoeMode.md) |  | [optional] 
 **PoeType** | Pointer to [**NullableInterfaceTemplatePoeType**](InterfaceTemplatePoeType.md) |  | [optional] 
 **RfRole** | Pointer to [**NullableInterfaceTemplateRfRole**](InterfaceTemplateRfRole.md) |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewInterfaceTemplate
 
-`func NewInterfaceTemplate(id int32, url string, display string, name string, type_ InterfaceType, created NullableTime, lastUpdated NullableTime, ) *InterfaceTemplate`
+`func NewInterfaceTemplate(id int32, url string, display string, name string, type_ InterfaceType, ) *InterfaceTemplate`
 
 NewInterfaceTemplate instantiates a new InterfaceTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -470,6 +470,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *InterfaceTemplate) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -500,6 +505,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *InterfaceTemplate) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

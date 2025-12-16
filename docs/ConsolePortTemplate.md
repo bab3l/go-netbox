@@ -13,14 +13,14 @@ Name | Type | Description | Notes
 **Label** | Pointer to **string** | Physical label | [optional] 
 **Type** | Pointer to [**ConsolePortType**](ConsolePortType.md) |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewConsolePortTemplate
 
-`func NewConsolePortTemplate(id int32, url string, display string, name string, created NullableTime, lastUpdated NullableTime, ) *ConsolePortTemplate`
+`func NewConsolePortTemplate(id int32, url string, display string, name string, ) *ConsolePortTemplate`
 
 NewConsolePortTemplate instantiates a new ConsolePortTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -279,6 +279,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *ConsolePortTemplate) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -309,6 +314,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *ConsolePortTemplate) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

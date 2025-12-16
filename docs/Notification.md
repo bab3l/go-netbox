@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **ObjectId** | **int64** |  | 
 **Object** | **interface{}** |  | [readonly] 
 **User** | [**BriefUser**](BriefUser.md) |  | 
-**Created** | **time.Time** |  | [readonly] 
+**Created** | Pointer to **time.Time** |  | [optional] [readonly] 
 **Read** | Pointer to **NullableTime** |  | [optional] 
 **EventType** | [**Event**](Event.md) |  | 
 
@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 
 ### NewNotification
 
-`func NewNotification(id int32, url string, display string, objectType string, objectId int64, object interface{}, user BriefUser, created time.Time, eventType Event, ) *Notification`
+`func NewNotification(id int32, url string, display string, objectType string, objectId int64, object interface{}, user BriefUser, eventType Event, ) *Notification`
 
 NewNotification instantiates a new Notification object
 This constructor will assign default values to properties that have it defined,
@@ -203,6 +203,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *Notification) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### GetRead
 

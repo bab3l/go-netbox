@@ -27,9 +27,9 @@ type DataFile struct {
 	Display    string          `json:"display"`
 	Source     BriefDataSource `json:"source"`
 	// File path relative to the data source's root
-	Path        string    `json:"path"`
-	LastUpdated time.Time `json:"last_updated"`
-	Size        int32     `json:"size"`
+	Path        string     `json:"path"`
+	LastUpdated *time.Time `json:"last_updated,omitempty"`
+	Size        int32      `json:"size"`
 	// SHA256 hash of the file data
 	Hash                 string `json:"hash"`
 	AdditionalProperties map[string]interface{}
@@ -41,14 +41,13 @@ type _DataFile DataFile
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewDataFile(id int32, url string, display string, source BriefDataSource, path string, lastUpdated time.Time, size int32, hash string) *DataFile {
+func NewDataFile(id int32, url string, display string, source BriefDataSource, path string, size int32, hash string) *DataFile {
 	this := DataFile{}
 	this.Id = id
 	this.Url = url
 	this.Display = display
 	this.Source = source
 	this.Path = path
-	this.LastUpdated = lastUpdated
 	this.Size = size
 	this.Hash = hash
 	return &this
@@ -214,28 +213,36 @@ func (o *DataFile) SetPath(v string) {
 	o.Path = v
 }
 
-// GetLastUpdated returns the LastUpdated field value
+// GetLastUpdated returns the LastUpdated field value if set, zero value otherwise.
 func (o *DataFile) GetLastUpdated() time.Time {
-	if o == nil {
+	if o == nil || IsNil(o.LastUpdated) {
 		var ret time.Time
 		return ret
 	}
-
-	return o.LastUpdated
+	return *o.LastUpdated
 }
 
-// GetLastUpdatedOk returns a tuple with the LastUpdated field value
+// GetLastUpdatedOk returns a tuple with the LastUpdated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 func (o *DataFile) GetLastUpdatedOk() (*time.Time, bool) {
-	if o == nil {
+	if o == nil || IsNil(o.LastUpdated) {
 		return nil, false
 	}
-	return &o.LastUpdated, true
+	return o.LastUpdated, true
 }
 
-// SetLastUpdated sets field value
+// HasLastUpdated returns a boolean if a field has been set.
+func (o *DataFile) HasLastUpdated() bool {
+	if o != nil && !IsNil(o.LastUpdated) {
+		return true
+	}
+
+	return false
+}
+
+// SetLastUpdated gets a reference to the given time.Time and assigns it to the LastUpdated field.
 func (o *DataFile) SetLastUpdated(v time.Time) {
-	o.LastUpdated = v
+	o.LastUpdated = &v
 }
 
 // GetSize returns the Size field value
@@ -304,7 +311,9 @@ func (o DataFile) ToMap() (map[string]interface{}, error) {
 	toSerialize["display"] = o.Display
 	toSerialize["source"] = o.Source
 	toSerialize["path"] = o.Path
-	toSerialize["last_updated"] = o.LastUpdated
+	if !IsNil(o.LastUpdated) {
+		toSerialize["last_updated"] = o.LastUpdated
+	}
 	toSerialize["size"] = o.Size
 	toSerialize["hash"] = o.Hash
 
@@ -325,7 +334,6 @@ func (o *DataFile) UnmarshalJSON(data []byte) (err error) {
 		"display",
 		"source",
 		"path",
-		"last_updated",
 		"size",
 		"hash",
 	}

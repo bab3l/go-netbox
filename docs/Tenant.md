@@ -15,8 +15,8 @@ Name | Type | Description | Notes
 **Comments** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **CircuitCount** | Pointer to **int64** |  | [optional] [readonly] 
 **DeviceCount** | Pointer to **int64** |  | [optional] [readonly] 
 **IpaddressCount** | Pointer to **int64** |  | [optional] [readonly] 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewTenant
 
-`func NewTenant(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, ) *Tenant`
+`func NewTenant(id int32, url string, display string, name string, slug string, ) *Tenant`
 
 NewTenant instantiates a new Tenant object
 This constructor will assign default values to properties that have it defined,
@@ -326,6 +326,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *Tenant) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -356,6 +361,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *Tenant) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

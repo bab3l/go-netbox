@@ -60,8 +60,8 @@ type Rack struct {
 	Comments             *string                `json:"comments,omitempty"`
 	Tags                 []NestedTag            `json:"tags,omitempty"`
 	CustomFields         map[string]interface{} `json:"custom_fields,omitempty"`
-	Created              NullableTime           `json:"created"`
-	LastUpdated          NullableTime           `json:"last_updated"`
+	Created              NullableTime           `json:"created,omitempty"`
+	LastUpdated          NullableTime           `json:"last_updated,omitempty"`
 	DeviceCount          *int64                 `json:"device_count,omitempty"`
 	PowerfeedCount       *int64                 `json:"powerfeed_count,omitempty"`
 	AdditionalProperties map[string]interface{}
@@ -73,15 +73,13 @@ type _Rack Rack
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewRack(id int32, url string, display string, name string, site BriefSite, created NullableTime, lastUpdated NullableTime) *Rack {
+func NewRack(id int32, url string, display string, name string, site BriefSite) *Rack {
 	this := Rack{}
 	this.Id = id
 	this.Url = url
 	this.Display = display
 	this.Name = name
 	this.Site = site
-	this.Created = created
-	this.LastUpdated = lastUpdated
 	return &this
 }
 
@@ -1199,18 +1197,16 @@ func (o *Rack) SetCustomFields(v map[string]interface{}) {
 	o.CustomFields = v
 }
 
-// GetCreated returns the Created field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// GetCreated returns the Created field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Rack) GetCreated() time.Time {
-	if o == nil || o.Created.Get() == nil {
+	if o == nil || IsNil(o.Created.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.Created.Get()
 }
 
-// GetCreatedOk returns a tuple with the Created field value
+// GetCreatedOk returns a tuple with the Created field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Rack) GetCreatedOk() (*time.Time, bool) {
@@ -1220,23 +1216,40 @@ func (o *Rack) GetCreatedOk() (*time.Time, bool) {
 	return o.Created.Get(), o.Created.IsSet()
 }
 
-// SetCreated sets field value
+// HasCreated returns a boolean if a field has been set.
+func (o *Rack) HasCreated() bool {
+	if o != nil && o.Created.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCreated gets a reference to the given NullableTime and assigns it to the Created field.
 func (o *Rack) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-// GetLastUpdated returns the LastUpdated field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// SetCreatedNil sets the value for Created to be an explicit nil
+func (o *Rack) SetCreatedNil() {
+	o.Created.Set(nil)
+}
+
+// UnsetCreated ensures that no value is present for Created, not even an explicit nil
+func (o *Rack) UnsetCreated() {
+	o.Created.Unset()
+}
+
+// GetLastUpdated returns the LastUpdated field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Rack) GetLastUpdated() time.Time {
-	if o == nil || o.LastUpdated.Get() == nil {
+	if o == nil || IsNil(o.LastUpdated.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.LastUpdated.Get()
 }
 
-// GetLastUpdatedOk returns a tuple with the LastUpdated field value
+// GetLastUpdatedOk returns a tuple with the LastUpdated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Rack) GetLastUpdatedOk() (*time.Time, bool) {
@@ -1246,9 +1259,28 @@ func (o *Rack) GetLastUpdatedOk() (*time.Time, bool) {
 	return o.LastUpdated.Get(), o.LastUpdated.IsSet()
 }
 
-// SetLastUpdated sets field value
+// HasLastUpdated returns a boolean if a field has been set.
+func (o *Rack) HasLastUpdated() bool {
+	if o != nil && o.LastUpdated.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastUpdated gets a reference to the given NullableTime and assigns it to the LastUpdated field.
 func (o *Rack) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
+}
+
+// SetLastUpdatedNil sets the value for LastUpdated to be an explicit nil
+func (o *Rack) SetLastUpdatedNil() {
+	o.LastUpdated.Set(nil)
+}
+
+// UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+func (o *Rack) UnsetLastUpdated() {
+	o.LastUpdated.Unset()
 }
 
 // GetDeviceCount returns the DeviceCount field value if set, zero value otherwise.
@@ -1408,8 +1440,12 @@ func (o Rack) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomFields) {
 		toSerialize["custom_fields"] = o.CustomFields
 	}
-	toSerialize["created"] = o.Created.Get()
-	toSerialize["last_updated"] = o.LastUpdated.Get()
+	if o.Created.IsSet() {
+		toSerialize["created"] = o.Created.Get()
+	}
+	if o.LastUpdated.IsSet() {
+		toSerialize["last_updated"] = o.LastUpdated.Get()
+	}
 	if !IsNil(o.DeviceCount) {
 		toSerialize["device_count"] = o.DeviceCount
 	}
@@ -1434,8 +1470,6 @@ func (o *Rack) UnmarshalJSON(data []byte) (err error) {
 		"display",
 		"name",
 		"site",
-		"created",
-		"last_updated",
 	}
 
 	// defaultValueFuncMap captures the default values for required properties.

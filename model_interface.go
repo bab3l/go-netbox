@@ -72,8 +72,8 @@ type Interface struct {
 	ConnectedEndpointsReachable bool                          `json:"connected_endpoints_reachable"`
 	Tags                        []NestedTag                   `json:"tags,omitempty"`
 	CustomFields                map[string]interface{}        `json:"custom_fields,omitempty"`
-	Created                     NullableTime                  `json:"created"`
-	LastUpdated                 NullableTime                  `json:"last_updated"`
+	Created                     NullableTime                  `json:"created,omitempty"`
+	LastUpdated                 NullableTime                  `json:"last_updated,omitempty"`
 	CountIpaddresses            int32                         `json:"count_ipaddresses"`
 	CountFhrpGroups             int32                         `json:"count_fhrp_groups"`
 	Occupied                    bool                          `json:"_occupied"`
@@ -86,7 +86,7 @@ type _Interface Interface
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewInterface(id int32, url string, display string, device BriefDevice, name string, type_ InterfaceType, cable NullableBriefCable, wirelessLink NullableNestedWirelessLink, linkPeers []interface{}, linkPeersType NullableString, l2vpnTermination NullableBriefL2VPNTermination, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, created NullableTime, lastUpdated NullableTime, countIpaddresses int32, countFhrpGroups int32, occupied bool) *Interface {
+func NewInterface(id int32, url string, display string, device BriefDevice, name string, type_ InterfaceType, cable NullableBriefCable, wirelessLink NullableNestedWirelessLink, linkPeers []interface{}, linkPeersType NullableString, l2vpnTermination NullableBriefL2VPNTermination, connectedEndpoints []interface{}, connectedEndpointsType NullableString, connectedEndpointsReachable bool, countIpaddresses int32, countFhrpGroups int32, occupied bool) *Interface {
 	this := Interface{}
 	this.Id = id
 	this.Url = url
@@ -102,8 +102,6 @@ func NewInterface(id int32, url string, display string, device BriefDevice, name
 	this.ConnectedEndpoints = connectedEndpoints
 	this.ConnectedEndpointsType = connectedEndpointsType
 	this.ConnectedEndpointsReachable = connectedEndpointsReachable
-	this.Created = created
-	this.LastUpdated = lastUpdated
 	this.CountIpaddresses = countIpaddresses
 	this.CountFhrpGroups = countFhrpGroups
 	this.Occupied = occupied
@@ -1612,18 +1610,16 @@ func (o *Interface) SetCustomFields(v map[string]interface{}) {
 	o.CustomFields = v
 }
 
-// GetCreated returns the Created field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// GetCreated returns the Created field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Interface) GetCreated() time.Time {
-	if o == nil || o.Created.Get() == nil {
+	if o == nil || IsNil(o.Created.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.Created.Get()
 }
 
-// GetCreatedOk returns a tuple with the Created field value
+// GetCreatedOk returns a tuple with the Created field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Interface) GetCreatedOk() (*time.Time, bool) {
@@ -1633,23 +1629,40 @@ func (o *Interface) GetCreatedOk() (*time.Time, bool) {
 	return o.Created.Get(), o.Created.IsSet()
 }
 
-// SetCreated sets field value
+// HasCreated returns a boolean if a field has been set.
+func (o *Interface) HasCreated() bool {
+	if o != nil && o.Created.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetCreated gets a reference to the given NullableTime and assigns it to the Created field.
 func (o *Interface) SetCreated(v time.Time) {
 	o.Created.Set(&v)
 }
 
-// GetLastUpdated returns the LastUpdated field value
-// If the value is explicit nil, the zero value for time.Time will be returned
+// SetCreatedNil sets the value for Created to be an explicit nil
+func (o *Interface) SetCreatedNil() {
+	o.Created.Set(nil)
+}
+
+// UnsetCreated ensures that no value is present for Created, not even an explicit nil
+func (o *Interface) UnsetCreated() {
+	o.Created.Unset()
+}
+
+// GetLastUpdated returns the LastUpdated field value if set, zero value otherwise (both if not set or set to explicit null).
 func (o *Interface) GetLastUpdated() time.Time {
-	if o == nil || o.LastUpdated.Get() == nil {
+	if o == nil || IsNil(o.LastUpdated.Get()) {
 		var ret time.Time
 		return ret
 	}
-
 	return *o.LastUpdated.Get()
 }
 
-// GetLastUpdatedOk returns a tuple with the LastUpdated field value
+// GetLastUpdatedOk returns a tuple with the LastUpdated field value if set, nil otherwise
 // and a boolean to check if the value has been set.
 // NOTE: If the value is an explicit nil, `nil, true` will be returned
 func (o *Interface) GetLastUpdatedOk() (*time.Time, bool) {
@@ -1659,9 +1672,28 @@ func (o *Interface) GetLastUpdatedOk() (*time.Time, bool) {
 	return o.LastUpdated.Get(), o.LastUpdated.IsSet()
 }
 
-// SetLastUpdated sets field value
+// HasLastUpdated returns a boolean if a field has been set.
+func (o *Interface) HasLastUpdated() bool {
+	if o != nil && o.LastUpdated.IsSet() {
+		return true
+	}
+
+	return false
+}
+
+// SetLastUpdated gets a reference to the given NullableTime and assigns it to the LastUpdated field.
 func (o *Interface) SetLastUpdated(v time.Time) {
 	o.LastUpdated.Set(&v)
+}
+
+// SetLastUpdatedNil sets the value for LastUpdated to be an explicit nil
+func (o *Interface) SetLastUpdatedNil() {
+	o.LastUpdated.Set(nil)
+}
+
+// UnsetLastUpdated ensures that no value is present for LastUpdated, not even an explicit nil
+func (o *Interface) UnsetLastUpdated() {
+	o.LastUpdated.Unset()
 }
 
 // GetCountIpaddresses returns the CountIpaddresses field value
@@ -1855,8 +1887,12 @@ func (o Interface) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.CustomFields) {
 		toSerialize["custom_fields"] = o.CustomFields
 	}
-	toSerialize["created"] = o.Created.Get()
-	toSerialize["last_updated"] = o.LastUpdated.Get()
+	if o.Created.IsSet() {
+		toSerialize["created"] = o.Created.Get()
+	}
+	if o.LastUpdated.IsSet() {
+		toSerialize["last_updated"] = o.LastUpdated.Get()
+	}
 	toSerialize["count_ipaddresses"] = o.CountIpaddresses
 	toSerialize["count_fhrp_groups"] = o.CountFhrpGroups
 	toSerialize["_occupied"] = o.Occupied
@@ -1887,8 +1923,6 @@ func (o *Interface) UnmarshalJSON(data []byte) (err error) {
 		"connected_endpoints",
 		"connected_endpoints_type",
 		"connected_endpoints_reachable",
-		"created",
-		"last_updated",
 		"count_ipaddresses",
 		"count_fhrp_groups",
 		"_occupied",

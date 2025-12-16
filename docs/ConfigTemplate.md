@@ -17,14 +17,14 @@ Name | Type | Description | Notes
 **DataFile** | Pointer to [**BriefDataFile**](BriefDataFile.md) |  | [optional] 
 **DataSynced** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewConfigTemplate
 
-`func NewConfigTemplate(id int32, url string, display string, name string, templateCode string, created NullableTime, lastUpdated NullableTime, ) *ConfigTemplate`
+`func NewConfigTemplate(id int32, url string, display string, name string, templateCode string, ) *ConfigTemplate`
 
 NewConfigTemplate instantiates a new ConfigTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -378,6 +378,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *ConfigTemplate) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -408,6 +413,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *ConfigTemplate) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

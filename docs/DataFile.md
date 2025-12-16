@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **Display** | **string** |  | [readonly] 
 **Source** | [**BriefDataSource**](BriefDataSource.md) |  | [readonly] 
 **Path** | **string** | File path relative to the data source&#39;s root | [readonly] 
-**LastUpdated** | **time.Time** |  | [readonly] 
+**LastUpdated** | Pointer to **time.Time** |  | [optional] [readonly] 
 **Size** | **int32** |  | [readonly] 
 **Hash** | **string** | SHA256 hash of the file data | [readonly] 
 
@@ -18,7 +18,7 @@ Name | Type | Description | Notes
 
 ### NewDataFile
 
-`func NewDataFile(id int32, url string, display string, source BriefDataSource, path string, lastUpdated time.Time, size int32, hash string, ) *DataFile`
+`func NewDataFile(id int32, url string, display string, source BriefDataSource, path string, size int32, hash string, ) *DataFile`
 
 NewDataFile instantiates a new DataFile object
 This constructor will assign default values to properties that have it defined,
@@ -177,6 +177,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *DataFile) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### GetSize
 

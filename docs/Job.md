@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **ObjectId** | Pointer to **NullableInt64** |  | [optional] 
 **Name** | **string** |  | 
 **Status** | [**BriefJobStatus**](BriefJobStatus.md) |  | 
-**Created** | **time.Time** |  | [readonly] 
+**Created** | Pointer to **time.Time** |  | [optional] [readonly] 
 **Scheduled** | Pointer to **NullableTime** |  | [optional] 
 **Interval** | Pointer to **NullableInt32** | Recurrence interval (in minutes) | [optional] 
 **Started** | Pointer to **NullableTime** |  | [optional] 
@@ -26,7 +26,7 @@ Name | Type | Description | Notes
 
 ### NewJob
 
-`func NewJob(id int32, url string, display string, objectType string, name string, status BriefJobStatus, created time.Time, user BriefUser, error_ string, jobId string, ) *Job`
+`func NewJob(id int32, url string, display string, objectType string, name string, status BriefJobStatus, user BriefUser, error_ string, jobId string, ) *Job`
 
 NewJob instantiates a new Job object
 This constructor will assign default values to properties that have it defined,
@@ -240,6 +240,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *Job) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### GetScheduled
 

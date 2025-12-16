@@ -12,14 +12,14 @@ Name | Type | Description | Notes
 **Circuit** | [**BriefCircuit**](BriefCircuit.md) |  | 
 **Priority** | Pointer to [**BriefCircuitGroupAssignmentSerializerPriority**](BriefCircuitGroupAssignmentSerializerPriority.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewCircuitGroupAssignment
 
-`func NewCircuitGroupAssignment(id int32, url string, display string, group BriefCircuitGroup, circuit BriefCircuit, created NullableTime, lastUpdated NullableTime, ) *CircuitGroupAssignment`
+`func NewCircuitGroupAssignment(id int32, url string, display string, group BriefCircuitGroup, circuit BriefCircuit, ) *CircuitGroupAssignment`
 
 NewCircuitGroupAssignment instantiates a new CircuitGroupAssignment object
 This constructor will assign default values to properties that have it defined,
@@ -228,6 +228,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *CircuitGroupAssignment) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -258,6 +263,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *CircuitGroupAssignment) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

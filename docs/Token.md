@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **DisplayUrl** | Pointer to **string** |  | [optional] [readonly] 
 **Display** | **string** |  | [readonly] 
 **User** | [**BriefUser**](BriefUser.md) |  | 
-**Created** | **time.Time** |  | [readonly] 
+**Created** | Pointer to **time.Time** |  | [optional] [readonly] 
 **Expires** | Pointer to **NullableTime** |  | [optional] 
 **LastUsed** | Pointer to **NullableTime** |  | [optional] 
 **Key** | Pointer to **string** |  | [optional] 
@@ -20,7 +20,7 @@ Name | Type | Description | Notes
 
 ### NewToken
 
-`func NewToken(id int32, url string, display string, user BriefUser, created time.Time, ) *Token`
+`func NewToken(id int32, url string, display string, user BriefUser, ) *Token`
 
 NewToken instantiates a new Token object
 This constructor will assign default values to properties that have it defined,
@@ -159,6 +159,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *Token) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### GetExpires
 

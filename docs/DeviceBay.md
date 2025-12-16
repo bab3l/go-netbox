@@ -15,14 +15,14 @@ Name | Type | Description | Notes
 **InstalledDevice** | Pointer to [**NullableBriefDevice**](BriefDevice.md) |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewDeviceBay
 
-`func NewDeviceBay(id int32, url string, display string, device BriefDevice, name string, created NullableTime, lastUpdated NullableTime, ) *DeviceBay`
+`func NewDeviceBay(id int32, url string, display string, device BriefDevice, name string, ) *DeviceBay`
 
 NewDeviceBay instantiates a new DeviceBay object
 This constructor will assign default values to properties that have it defined,
@@ -316,6 +316,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *DeviceBay) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -346,6 +351,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *DeviceBay) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

@@ -15,14 +15,14 @@ Name | Type | Description | Notes
 **Color** | Pointer to **string** |  | [optional] 
 **Positions** | Pointer to **int32** |  | [optional] 
 **Description** | Pointer to **string** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewRearPortTemplate
 
-`func NewRearPortTemplate(id int32, url string, display string, name string, type_ FrontPortType, created NullableTime, lastUpdated NullableTime, ) *RearPortTemplate`
+`func NewRearPortTemplate(id int32, url string, display string, name string, type_ FrontPortType, ) *RearPortTemplate`
 
 NewRearPortTemplate instantiates a new RearPortTemplate object
 This constructor will assign default values to properties that have it defined,
@@ -326,6 +326,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *RearPortTemplate) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -356,6 +361,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *RearPortTemplate) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

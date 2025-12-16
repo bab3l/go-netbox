@@ -14,14 +14,14 @@ Name | Type | Description | Notes
 **Image** | **string** |  | 
 **ImageHeight** | **int32** |  | [readonly] 
 **ImageWidth** | **int32** |  | [readonly] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewImageAttachment
 
-`func NewImageAttachment(id int32, url string, display string, objectType string, objectId int64, parent interface{}, image string, imageHeight int32, imageWidth int32, created NullableTime, lastUpdated NullableTime, ) *ImageAttachment`
+`func NewImageAttachment(id int32, url string, display string, objectType string, objectId int64, parent interface{}, image string, imageHeight int32, imageWidth int32, ) *ImageAttachment`
 
 NewImageAttachment instantiates a new ImageAttachment object
 This constructor will assign default values to properties that have it defined,
@@ -270,6 +270,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *ImageAttachment) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -300,6 +305,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *ImageAttachment) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

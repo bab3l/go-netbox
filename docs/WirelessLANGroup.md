@@ -14,8 +14,8 @@ Name | Type | Description | Notes
 **Description** | Pointer to **string** |  | [optional] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **WirelesslanCount** | **int32** |  | [readonly] [default to 0]
 **Depth** | **int32** |  | [readonly] 
 
@@ -23,7 +23,7 @@ Name | Type | Description | Notes
 
 ### NewWirelessLANGroup
 
-`func NewWirelessLANGroup(id int32, url string, display string, name string, slug string, created NullableTime, lastUpdated NullableTime, wirelesslanCount int32, depth int32, ) *WirelessLANGroup`
+`func NewWirelessLANGroup(id int32, url string, display string, name string, slug string, wirelesslanCount int32, depth int32, ) *WirelessLANGroup`
 
 NewWirelessLANGroup instantiates a new WirelessLANGroup object
 This constructor will assign default values to properties that have it defined,
@@ -292,6 +292,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *WirelessLANGroup) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -322,6 +327,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *WirelessLANGroup) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

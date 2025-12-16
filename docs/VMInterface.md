@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **L2vpnTermination** | Pointer to [**NullableBriefL2VPNTermination**](BriefL2VPNTermination.md) |  | [optional] [readonly] 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**Created** | **NullableTime** |  | [readonly] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **CountIpaddresses** | Pointer to **int32** |  | [optional] [readonly] 
 **CountFhrpGroups** | Pointer to **int32** |  | [optional] [readonly] 
 
@@ -32,7 +32,7 @@ Name | Type | Description | Notes
 
 ### NewVMInterface
 
-`func NewVMInterface(id int32, url string, display string, virtualMachine BriefVirtualMachine, name string, created NullableTime, lastUpdated NullableTime, ) *VMInterface`
+`func NewVMInterface(id int32, url string, display string, virtualMachine BriefVirtualMachine, name string, ) *VMInterface`
 
 NewVMInterface instantiates a new VMInterface object
 This constructor will assign default values to properties that have it defined,
@@ -586,6 +586,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *VMInterface) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -616,6 +621,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *VMInterface) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 

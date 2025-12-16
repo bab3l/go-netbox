@@ -11,19 +11,19 @@ Name | Type | Description | Notes
 **AssignedObjectType** | **string** |  | 
 **AssignedObjectId** | **int64** |  | 
 **AssignedObject** | **interface{}** |  | [readonly] 
-**Created** | **NullableTime** |  | [readonly] 
+**Created** | Pointer to **NullableTime** |  | [optional] [readonly] 
 **CreatedBy** | Pointer to **NullableInt32** |  | [optional] 
 **Kind** | Pointer to [**JournalEntryKind**](JournalEntryKind.md) |  | [optional] 
 **Comments** | **string** |  | 
 **Tags** | Pointer to [**[]NestedTag**](NestedTag.md) |  | [optional] 
 **CustomFields** | Pointer to **map[string]interface{}** |  | [optional] 
-**LastUpdated** | **NullableTime** |  | [readonly] 
+**LastUpdated** | Pointer to **NullableTime** |  | [optional] [readonly] 
 
 ## Methods
 
 ### NewJournalEntry
 
-`func NewJournalEntry(id int32, url string, display string, assignedObjectType string, assignedObjectId int64, assignedObject interface{}, created NullableTime, comments string, lastUpdated NullableTime, ) *JournalEntry`
+`func NewJournalEntry(id int32, url string, display string, assignedObjectType string, assignedObjectId int64, assignedObject interface{}, comments string, ) *JournalEntry`
 
 NewJournalEntry instantiates a new JournalEntry object
 This constructor will assign default values to properties that have it defined,
@@ -212,6 +212,11 @@ and a boolean to check if the value has been set.
 
 SetCreated sets Created field to given value.
 
+### HasCreated
+
+`func (o *JournalEntry) HasCreated() bool`
+
+HasCreated returns a boolean if a field has been set.
 
 ### SetCreatedNil
 
@@ -372,6 +377,11 @@ and a boolean to check if the value has been set.
 
 SetLastUpdated sets LastUpdated field to given value.
 
+### HasLastUpdated
+
+`func (o *JournalEntry) HasLastUpdated() bool`
+
+HasLastUpdated returns a boolean if a field has been set.
 
 ### SetLastUpdatedNil
 
