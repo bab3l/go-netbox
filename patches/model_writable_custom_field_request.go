@@ -28,7 +28,7 @@ type WritableCustomFieldRequest struct {
 	// Internal field name
 	Name string `json:"name" validate:"regexp=^[a-z0-9_]+$"`
 	// Name of the field as displayed to users (if not provided, 'the field's name will be used)
-	Label *string `json:"label,omitempty"`
+	Label *string `json:"label"`
 	// Custom fields within the same group will be displayed together
 	GroupName   *string `json:"group_name,omitempty"`
 	Description *string `json:"description,omitempty"`
