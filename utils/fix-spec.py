@@ -2,11 +2,43 @@
 
 import yaml
 
+
+def _normalize_version(version: str) -> str:
+    """Normalize NetBox version strings to semver-like tokens.
+
+    Examples:
+        "4.1.11" -> "4.1.11"
+        "4.1.11 (4.1)" -> "4.1.11"
+    """
+    return version.split()[0] if version else ""
+
+
+def _apply_version_patches(data: dict) -> None:
+    """Apply version-specific OpenAPI patches.
+
+    This is intentionally structured to make it easy to add new patches per
+    NetBox version without touching the generic transforms below.
+    """
+    version = _normalize_version(data.get("info", {}).get("version", ""))
+
+    # NetBox 4.1.11 errata: nested Group objects inside NotificationGroup omit
+    # user_count in API responses, but the OpenAPI spec marks it as required.
+    # This causes generated clients to reject valid responses during unmarshal.
+    if version == "4.1.11":
+        schemas = data.get("components", {}).get("schemas", {})
+        group_schema = schemas.get("Group")
+        if group_schema and "required" in group_schema:
+            if "user_count" in group_schema["required"]:
+                group_schema["required"].remove("user_count")
+
 SPEC_PATH = '../api/openapi.yaml'
 
 # Load the spec file
 with open(SPEC_PATH, 'r') as file:
     data = yaml.load(file, Loader=yaml.CLoader)
+
+# Apply version-specific patches first (if any)
+_apply_version_patches(data)
 
 # Traverse schemas
 if 'components' in data and 'schemas' in data['components']:
