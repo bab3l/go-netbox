@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-01-15
+
+### Fixed
+- Patch OpenAPI for NetBox 4.1.11: `Group.user_count` marked required in schema but omitted in nested notification group responses.
+- Documented errata and added version-aware spec patching for 4.1.11.
+
 ## [0.1.1] - 2025-12-15
 
 ### Changed
@@ -35,5 +41,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Pagination support via `PaginatedXList` types
 - MPL-2.0 license
 
-[Unreleased]: https://github.com/bab3l/go-netbox/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/bab3l/go-netbox/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/bab3l/go-netbox/compare/v0.1.4...v0.1.5
 [0.1.0]: https://github.com/bab3l/go-netbox/releases/tag/v0.1.0
